@@ -2,11 +2,11 @@ import React from "react";
 
 // define TaskItem interface to use as props type
 interface TaskItemProps {
-  id: number;
+  id: string;
   title: string;
   completed: boolean;
-  deleteTaskFunc: (taskId: number) => void; // callback function
-  toggleDoneTaskFunc: (taskId: number) => void; // callback function
+  deleteTaskFunc: (taskId: string) => void; // callback function
+  toggleDoneTaskFunc: (taskId: string) => void; // callback function
 }
 
 export default function Task({
@@ -19,6 +19,9 @@ export default function Task({
   // callback function when delete button is clicked
   const deleteBtnOnClick = () => {
     deleteTaskFunc(id);
+  };
+  const doneBtnOnClick = () => {
+    toggleDoneTaskFunc(id);
   };
 
   return (
